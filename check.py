@@ -13,7 +13,7 @@ st.sidebar.header("⚙️ 설정")
 # Logic for the reset button
 if st.sidebar.button("초기값으로", key='reset'):
     st.session_state.angle = 180
-    st.session_state.segments = 12
+    st.session_state.segments = 2
     st.session_state.radius = 5.0
 
 # Use Streamlit widgets to get user input
