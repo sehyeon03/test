@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(layout="wide")
 st.title("부채꼴 호의 길이를 이용해 넓이 구하기! 🥧")
-st.write("부채꼴을 잘게 나눈 뒤 재배치하여 직사각형에 가까워지는 과정을 시각적으로 확인합니다.")
+st.write("부채꼴을 잘게 나눈 뒤 재배치하는 과정을 시각적으로 확인합니다.")
 
 # --- Sidebar Controls ---
 
@@ -30,7 +30,7 @@ segments = st.sidebar.slider(
     '나누는 개수:', 
     min_value=2, 
     max_value=100, 
-    value=st.session_state.get('segments', 12), 
+    value=st.session_state.get('segments', 2), 
     step=1,
     key='segments'
 )
@@ -117,13 +117,4 @@ def create_plots(angle, segments, radius):
 fig = create_plots(angle, segments, radius)
 st.pyplot(fig)
 
-st.info("""
-**관찰 포인트:**
-        
-- **분할 개수**를 늘릴수록 재배치된 도형이 점점 더 직사각형에 가까워집니다.
-        
-- 이 원리를 통해 부채꼴의 넓이 공식 $(Area = \\frac{1}{2}r^2\\theta)$ 이 유도되는 과정을 이해할 수 있습니다.
-  - 재배치된 도형의 가로 길이는 호의 길이($l=r\\theta$)의 절반인 $\\frac{1}{2}r\\theta$ 에 가까워지고,
-  - 세로 길이는 반지름 $r$에 가까워지기 때문입니다.
-""")
 
